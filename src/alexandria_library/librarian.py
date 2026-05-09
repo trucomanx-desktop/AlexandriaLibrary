@@ -16,6 +16,7 @@ from alexandria_library.modules.worker  import FileWorker
 from alexandria_library.modules.files   import save_file_in
 from alexandria_library.modules.files   import open_file_from_index
 from alexandria_library.modules.files   import open_folder_from_path
+from alexandria_library.modules.resources      import resource_path
 from alexandria_library.modules.context_menu   import show_context_menu_from_index
 from alexandria_library.modules.about_window   import show_about_window
 from alexandria_library.modules.search_results import display_search_results_from_file_list
@@ -55,7 +56,7 @@ def open_filepath(path_arquivo: str):
 
 if not os.path.exists(os.path.expanduser(CONFIG["BASE_PATH"])):
     CONFIG=DEFAULT_CONTENT.copy()
-    os.makedirs(os.path.join(os.path.expanduser(CONFIG["BASE_PATH"]),"Library"))
+    os.makedirs(os.path.join(os.path.expanduser(CONFIG["BASE_PATH"]),"Library"), exist_ok="true")
 
 class Alexandria(QMainWindow):
     def __init__(self):
@@ -65,8 +66,8 @@ class Alexandria(QMainWindow):
         self.current_file_model = None
         
         # Icon
-        base_dir_path = os.path.dirname(os.path.abspath(__file__))
-        icon_path = os.path.join(base_dir_path, 'icons', 'logo.png')
+        icon_path = resource_path('icons', 'logo.png')
+        
         if os.path.exists(icon_path):
             self.setWindowIcon(QIcon(icon_path))
 
@@ -238,8 +239,7 @@ class Alexandria(QMainWindow):
             "url_bugs": about.__url_bugs__
         }
         
-        base_dir_path = os.path.dirname(os.path.abspath(__file__))
-        logo_path = os.path.join(base_dir_path, 'icons', 'logo.png')
+        logo_path = resource_path('icons', 'logo.png')
         
         show_about_window(data, logo_path)
 
