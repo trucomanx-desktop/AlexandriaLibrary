@@ -28,7 +28,10 @@ import alexandria_library.modules.configure as configure
 DEFAULT_CONTENT={"BASE_PATH":"~/Alexandria"}
 
 # Caminho para o arquivo de configuração
-CONFIG_PATH = os.path.join(os.path.expanduser("~"),".config",about.__package__,"config.json")
+CONFIG_PATH = os.path.join( os.path.expanduser("~"),
+                            ".config",
+                            about.__package__,
+                            "config.json")
 configure.verify_default_config(CONFIG_PATH, default_content=DEFAULT_CONTENT)
 CONFIG=configure.load_config(CONFIG_PATH)
 
@@ -181,13 +184,13 @@ class Alexandria(QMainWindow):
         self.addToolBar(self.toolbar)
         
         #
-        self.add_file_action = QAction(QIcon.fromTheme('edit-copy'), "Add to Lib.", self)
+        self.add_file_action = QAction(QIcon(resource_path('icons', 'copy_file.png')), "Add to Lib.", self)
         self.add_file_action.setToolTip("Copy file to some path in the library directory.")
         self.add_file_action.triggered.connect(self.add_file)
         self.toolbar.addAction(self.add_file_action)
         
         #
-        self.refresh_action = QAction(QIcon.fromTheme('view-refresh'), "Refresh", self)
+        self.refresh_action = QAction(QIcon(resource_path('icons', 'view-refresh.png')), "Refresh", self)
         self.refresh_action.triggered.connect(self.refresh)
         self.refresh_action.setToolTip("Refresh the information of all files in the library directory.")
         self.toolbar.addAction(self.refresh_action)
@@ -198,19 +201,21 @@ class Alexandria(QMainWindow):
         self.toolbar.addWidget(spacer)
         
         self.configure_action = QAction("Configure", self)
-        self.configure_action.setIcon(QIcon.fromTheme("document-properties"))
+        self.configure_action.setIcon(QIcon(resource_path('icons', 'text-configure.png')))
         self.configure_action.setToolTip("Configure the global variables of program")
         self.configure_action.triggered.connect(self.configure_function)
         self.toolbar.addAction(self.configure_action)
         
         self.coffee_action = QAction("Coffee", self)
-        self.coffee_action.setIcon(QIcon.fromTheme("emblem-favorite"))
+        self.coffee_action.setIcon(QIcon(resource_path('icons', 'emote-love.png')))
         self.coffee_action.setToolTip("Buy me a coffee (TrucomanX)")
         self.coffee_action.triggered.connect(self.buy_me_a_coffee)
         self.toolbar.addAction(self.coffee_action)
         
         #
-        self.about_action = QAction(QIcon.fromTheme('help-about'), "About", self)
+        self.about_action = QAction(QIcon(resource_path('icons', 'status_help.png')), 
+                                    "About", 
+                                    self)
         self.about_action.triggered.connect(self.open_about)
         self.about_action.setToolTip("Show the information of program.")
         self.toolbar.addAction(self.about_action)
