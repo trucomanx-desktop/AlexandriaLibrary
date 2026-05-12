@@ -21,7 +21,7 @@ alexandria-library
 Installing `alexandria-library` program
 
 ```bash
-git clone https://github.com/trucomanx/{REPOSITORY_NAME}.git
+git clone https://github.com/trucomanx-desktop/{REPOSITORY_NAME}.git
 cd {REPOSITORY_NAME}
 pip install -r requirements.txt
 cd src

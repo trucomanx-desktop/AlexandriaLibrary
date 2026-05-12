@@ -2,7 +2,7 @@
 
 Program for the management and organization of digital files.
 
-![logo](https://raw.githubusercontent.com/trucomanx/AlexandriaLibrary/main/screenshot.png)
+![logo](https://raw.githubusercontent.com/trucomanx-desktop/AlexandriaLibrary/main/screenshot.png)
 
 ## 1. Installing
 
@@ -24,7 +24,7 @@ alexandria-library
 ```
 ## 2. More information
 
-If you want more information go to [doc](https://github.com/trucomanx/AlexandriaLibrary/blob/main/doc) directory
+If you want more information go to [doc](https://github.com/trucomanx-desktop/AlexandriaLibrary/blob/main/doc) directory
 
 ## 3. Buy me a coffee
 
